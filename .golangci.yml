@@ -1,0 +1,31 @@
+linters:
+  enable:
+    - asciicheck
+    - bodyclose
+    - deadcode
+    - dogsled
+    - godox
+    - gofmt
+    - gofumpt
+    - goimports
+    - golint
+    - gosimple
+    - ineffassign
+    - interfacer
+    - lll
+    - maligned
+    - misspell
+    - nakedret
+    - nolintlint
+    - prealloc
+    - rowserrcheck
+    - sqlclosecheck
+    - staticcheck
+    - structcheck
+    - unconvert
+    - unparam
+    - varcheck
+    - whitespace
+linters-settings:
+  lll:
+    line-length: 120

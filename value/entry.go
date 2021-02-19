@@ -49,7 +49,7 @@ func (e Entry) Fields() log.Fields {
 	}
 
 	if e.Hash != 0 {
-		fields["transcoded"] = e.Hash
+		fields["hash"] = e.Hash
 	}
 
 	return fields

@@ -114,9 +114,9 @@ Looking at the logging you should be able to see the process taken by goamt when
 more files. Note that these log statements may be interlaced since both files were being transcoded
 concurrently.
 
-Interrogating the database once again shows that a transcoded timestamp has been updated; these
-media file will not be re-transcoded by goamt. The entry will remain to allow rename detection to
-function as expected.
+Interrogating the database once again shows that a transcoded timestamp has been updated/populated;
+these media file will not be re-transcoded by goamt. The entry will remain to allow rename detection
+to function as expected.
 
 ```sh
 $ sqlite3 goamt.db 'select * from library;'
@@ -140,7 +140,7 @@ Concepts
 ========
 
 [pytranscoder](https://github.com/jamesl33/pytranscoder) has served as a useful tool over the years,
-however, start to become more of a burden that it needed to be. goamt is intended to build upon
+however, it started to become more of a burden that it needed to be. goamt is intended to build upon
 pytranscoder whilst solving a few fundamentals issues.
 
 Ease of Management
@@ -159,14 +159,14 @@ goamt handles file renaming seamlessly by storing additional information about f
 filename (such as a hash). This means goamt is able update its database without "forgetting" that a
 file has already been transcoded.
 
-Secondly, an automatic transcode tool should be able to handle/recover from partial transcoding
+Secondly, an automatic transcoding tool should be able to handle/recover from partial transcoding
 tasks which may have been interrupted by power cuts or other such unforeseen issues.
 
 The goamt tool leverages an SQLite database, job tracking and ordered multi-stage modifications to
 always allow a task to be correctly rolled back or completed (depending on how far though the
 process the failed task was).
 
-Finally, an automatic transcoding tool should be setup and them forgotten about it; it should do its
+Finally, an automatic transcoding tool should be setup and then forgotten about it; it should do its
 thing and be stable/resilient enough to proceed with mass transcoding without human iteration. goamt
 builds upon point #2 with extensive unit testing to provide a stable tool which is intended to serve
 this exact purpose.
